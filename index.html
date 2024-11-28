@@ -7,9 +7,12 @@
     <title>Cat Facts</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+        #getCatFact {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
         #getCatFact:active {
-            transform: scale(0.95);
-            transition: transform 0.1s;
+            transform: scale(0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
