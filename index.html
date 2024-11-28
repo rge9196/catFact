@@ -8,11 +8,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         #getCatFact {
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        #getCatFact:active {
-            transform: scale(0.9);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); !important:
+        #getCatFact.clicked {
+            transform: scale(1.1) !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
         }
     </style>
 </head>
@@ -26,6 +26,13 @@
     <script>
         $(document).ready(function() {
             $('#getCatFact').click(function() {
+                // Add a class to animate the button
+                $(this).addClass('clicked');
+                setTimeout(() => {
+                    $(this).removeClass('clicked');
+                }, 200);
+                
+                // Fetch the cat fact
                 $.getJSON('https://catfact.ninja/fact', function(data) {
                     $('#catFact').text(data.fact);
                 });
